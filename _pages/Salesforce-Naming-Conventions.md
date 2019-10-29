@@ -1,4 +1,4 @@
-##Salesforce Naming Conventions
+## Salesforce Naming Conventions
 
 Naming conventions make the application easier to read and maintain. The naming standards documented here cover customization and configuration areas of salesforce. Regardless of the context in which names are used, Names should be descriptive, concrete, and specific rather than general. Having a generalized name such as ProductLine can have different semantics depending upon the context. It’s better to use something the business identifies with and that will not create a potential conflict with other applications; e.g., ReverseMortgage.
 
@@ -550,3 +550,38 @@ None
 ![Create a new Group](/img/group_naming_example.png)
 
 ![Public Groups](/img/group_naming_example_1.png)
+
+### 20. Processes
+
+#### Rules for Naming
+
+Process names will follow the following convention: 
+
+|Attribute | Naming Convention |
+|----------|:----------------|
+|Record-change Process Name | The process name will follow the <SObject>" Change" format. This consolidates all business processes per object for better and more reliable predictability when debugging or troubleshooting.|
+|Invocable Process Name | The process name will follow the <Business Purpose>" Invocable" format, where Busines Process must be a verb or an action. Including the salesforce object in the rule name is unnecessary as there is a standard field in the list view that can show this. Whole words should be used and use of acronyms and abbreviations should be limited.|
+|Platform Event Process Name | The process name will follow the <Platform Event>" Event" format.|
+|Description | A full description of the process and what actions it performs.|
+
+#### Exceptions
+
+As there is an upper limit for the number of characters in the name field the use of abbreviations will be permitted if by including them the name becomes easier to read.
+
+#### Demonstrative Example
+
+The following are examples of process naming that should not be used:
+
+|Attribute | Example | Reason| 
+|----------|:---------|--------|
+|Record-change Process Name | Contact – Send Email and Update Inactive Flag | Name is too long and describes the actions performed as part of the process that may change over time making the name potentially confusing in the future.|
+|Description | Sends an email | Not enough detail to be immediately clear what the process actions are. Who is the email to? What about the field update?|
+
+ The following are examples of the naming convention that will be used: 
+
+| Attribute | Example | Reason |
+|-----------|:---------|:-------|
+|Record-change Process Name | Contact Change | Describes the event that will fire the rule in a succinct way |
+|Description | Sends an email to the Deceased Customer public group and updates the inactive flag of the contact for batch processing | Provides a clear and brief description of the intention of the actions performed. The description can be more easily updated and migrated as changes are made over time|
+
+____
